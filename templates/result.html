@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Prediction Result - Laptop Price Predictor</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">Price Prediction Result</div>
+        
+        <div class="result-container">
+            <div class="result-icon">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea"/>
+                            <stop offset="50%" style="stop-color:#764ba2"/>
+                            <stop offset="100%" style="stop-color:#f093fb"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            
+            <div class="result-header">
+                <h2>Estimated Price</h2>
+                <p>Based on your laptop specifications</p>
+            </div>
+            
+            <div class="price-display">
+                <div class="currency">LKR</div>
+                <div class="price-value">{{pred_value}}</div>
+            </div>
+            
+            <div class="result-details">
+                <div class="detail-item">
+                    <span class="detail-label">Confidence Level:</span>
+                    <span class="detail-value">High</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Market Range:</span>
+                    <span class="detail-value">±5%</span>
+                </div>
+            </div>
+            
+            <div class="result-actions">
+                <a href="/" class="btn new-prediction">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    New Prediction
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
