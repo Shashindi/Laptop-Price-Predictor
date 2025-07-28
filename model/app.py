@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 import os
 
-# setup application
+
 app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), '../templates'), static_folder=os.path.join(os.path.dirname(__file__), '../static'))
 
 def prediction(lst):
@@ -15,7 +15,7 @@ def prediction(lst):
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    # return "Hello World"
+    
     pred_value = 0
     if request.method == 'POST':
         ram = request.form['ram']
@@ -41,21 +41,16 @@ def index():
         cpu_list = ['amd','intelcorei3','intelcorei5','intelcorei7','other']
         gpu_list = ['amd','intel','nvidia']
 
-        # for item in company_list:
-        #     if item == company:
-        #         feature_list.append(1)
-        #     else:
-        #         feature_list.append(0)
 
         def traverse_list(lst, value, n_minus_1=False):
-            # Use n-1 encoding: only encode first n-1 items
+            
             items = lst[:-1] if n_minus_1 else lst
             for item in items:
                 if item == value:
                     feature_list.append(1)
                 else:
                     feature_list.append(0)
-            # n-1 encoding: if value is the last item, all zeros are already appended
+           
 
         traverse_list(company_list, company, n_minus_1=True)
         traverse_list(typename_list, typename, n_minus_1=True)
@@ -69,7 +64,7 @@ def index():
         pred_value = prediction(feature_list)
         pred_value = np.round(pred_value[0],2)*221
         
-        # Store the result in session or pass as parameter
+        
         return redirect(url_for('result', price=pred_value))
 
     return render_template('index.html', pred_value=pred_value)
